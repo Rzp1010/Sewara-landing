@@ -109,7 +109,7 @@ export default function Page() {
           <div>
             <Reveal delay={90}>
               <h1 className="sw-hero-title">
-                Era Baru <span className="sw-grad-text">Manajemen Persewaan</span>
+                Era Baru <span className="sw-accent-text">Manajemen Persewaan</span>
               </h1>
             </Reveal>
             <Reveal delay={180}>

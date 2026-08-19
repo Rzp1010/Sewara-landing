@@ -3,20 +3,23 @@
    ------------------------------------------------------------
    Satu bahasa visual untuk landing page (/), halaman panduan
    (/panduan), dan seluruh komponen website Sewara.
-   Warna mengikuti palet resmi aplikasi Sewara (indigo #4F46E5).
+   Warna mengikuti palet resmi aplikasi Sewara (periwinkle #7181E0).
    ============================================================ */
 
 /* ---------- 1. Design tokens ---------- */
 :root {
-  /* Brand (indigo) */
-  --sw-primary: #4F46E5;
-  --sw-primary-hover: #4338CA;
-  --sw-primary-active: #3730A3;
-  --sw-primary-soft: #EEF2FF;
-  --sw-primary-soft-strong: #E0E7FF;
-  --sw-primary-soft-text: #4338CA;
+  /* Brand (periwinkle — palette resmi) */
+  --sw-primary: #7181E0;
+  --sw-primary-hover: #6674CA;
+  --sw-primary-active: #5A67B3;
+  --sw-primary-soft: #F0F2FC;
+  --sw-primary-soft-strong: #E2E6F9;
+  --sw-primary-soft-text: #6674CA;
   --sw-navbar: #1E1B4B;
-  --sw-primary-glow: rgba(79, 70, 229, 0.35);
+  --sw-primary-glow: rgba(113, 129, 224, 0.35);
+
+
+  --sw-accent-blue: #2563EB;
 
   /* Latar & permukaan */
   --sw-bg: #F5F6FA;
@@ -187,15 +190,15 @@ code {
 .sw-btn:active { transform: translateY(0); }
 .sw-btn svg { width: 17px; height: 17px; flex-shrink: 0; }
 
-.sw-btn--primary { background: var(--sw-primary); color: #fff; box-shadow: 0 10px 24px rgba(79, 70, 229, 0.35); }
-.sw-btn--primary:hover { background: var(--sw-primary-hover); box-shadow: 0 14px 30px rgba(79, 70, 229, 0.45); }
+.sw-btn--primary { background: var(--sw-primary); color: #fff; box-shadow: 0 10px 24px rgba(113, 129, 224, 0.35); }
+.sw-btn--primary:hover { background: var(--sw-primary-hover); box-shadow: 0 14px 30px rgba(113, 129, 224, 0.45); }
 .sw-btn--primary:active { background: var(--sw-primary-active); }
 
 .sw-btn--dark { background: var(--sw-navbar); color: #fff; box-shadow: 0 10px 24px rgba(30, 27, 75, 0.3); }
 .sw-btn--dark:hover { background: var(--sw-primary-active); }
 
 .sw-btn--outline { background: var(--sw-surface); border-color: var(--sw-border); color: var(--sw-text); }
-.sw-btn--outline:hover { border-color: var(--sw-primary); color: var(--sw-primary-hover); background: var(--sw-primary-soft); box-shadow: 0 8px 20px rgba(79, 70, 229, 0.12); }
+.sw-btn--outline:hover { border-color: var(--sw-primary); color: var(--sw-primary-hover); background: var(--sw-primary-soft); box-shadow: 0 8px 20px rgba(113, 129, 224, 0.12); }
 
 .sw-btn--ghost { background: transparent; color: var(--sw-text-2); }
 .sw-btn--ghost:hover { background: var(--sw-subtle); color: var(--sw-text); }
@@ -228,7 +231,7 @@ code {
 .sw-logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
 .sw-logo:hover { text-decoration: none; }
 .sw-logo-img {
-  height: 36px;
+  height: 60px;
   width: auto;
   display: block;
 }
@@ -326,8 +329,8 @@ code {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(to right, rgba(79, 70, 229, 0.055) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(79, 70, 229, 0.055) 1px, transparent 1px);
+    linear-gradient(to right, rgba(113, 129, 224, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(113, 129, 224, 0.055) 1px, transparent 1px);
   background-size: 46px 46px;
   -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 0%, #000 25%, transparent 78%);
   mask-image: radial-gradient(ellipse 90% 80% at 50% 0%, #000 25%, transparent 78%);
@@ -340,7 +343,7 @@ code {
   background:
     radial-gradient(620px 340px at 12% -4%, rgba(224, 231, 255, 0.95), transparent 62%),
     radial-gradient(560px 320px at 96% 12%, rgba(139, 92, 246, 0.1), transparent 62%),
-    radial-gradient(480px 300px at 55% 110%, rgba(79, 70, 229, 0.08), transparent 65%);
+    radial-gradient(480px 300px at 55% 110%, rgba(113, 129, 224, 0.08), transparent 65%);
   pointer-events: none;
 }
 
@@ -363,11 +366,8 @@ code {
   line-height: 1.06;
   margin-bottom: 22px;
 }
-.sw-grad-text {
-  background: linear-gradient(100deg, var(--sw-primary) 10%, var(--sw-purple) 90%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.sw-accent-text {
+  color: var(--sw-accent-blue);
 }
 .sw-hero-sub {
   font-size: 18px;
@@ -393,7 +393,7 @@ code {
 .sw-mock-glow {
   position: absolute;
   inset: 6% -6% 4% -4%;
-  background: radial-gradient(60% 55% at 50% 45%, rgba(79, 70, 229, 0.28), rgba(139, 92, 246, 0.12) 55%, transparent 75%);
+  background: radial-gradient(60% 55% at 50% 45%, rgba(113, 129, 224, 0.28), rgba(139, 92, 246, 0.12) 55%, transparent 75%);
   filter: blur(36px);
   pointer-events: none;
 }
@@ -719,7 +719,7 @@ code {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(500px 300px at 15% 0%, rgba(79, 70, 229, 0.55), transparent 60%),
+    radial-gradient(500px 300px at 15% 0%, rgba(113, 129, 224, 0.55), transparent 60%),
     radial-gradient(500px 320px at 88% 100%, rgba(139, 92, 246, 0.35), transparent 62%);
   pointer-events: none;
 }
@@ -888,7 +888,7 @@ code {
   color: #fff;
   font-size: 14px;
   font-weight: 700;
-  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.5);
+  box-shadow: 0 12px 30px rgba(113, 129, 224, 0.5);
   cursor: pointer;
   transition: background-color var(--sw-fast), transform var(--sw-fast);
 }
@@ -1054,7 +1054,7 @@ code {
   border-radius: 7px;
   margin-top: 1px;
 }
-.sw-note-icon { background: rgba(79, 70, 229, 0.12); color: var(--sw-primary); }
+.sw-note-icon { background: rgba(113, 129, 224, 0.12); color: var(--sw-primary); }
 .sw-warn-icon { background: rgba(245, 158, 11, 0.18); color: var(--sw-warning); }
 .sw-note-icon svg, .sw-warn-icon svg { width: 13px; height: 13px; }
 .sw-note-title, .sw-warn-title { font-weight: 700; margin-bottom: 3px; }
@@ -1119,7 +1119,7 @@ code {
 .sw-opt-card--hl {
   border-color: var(--sw-primary);
   background: var(--sw-primary-soft);
-  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.12);
+  box-shadow: 0 6px 18px rgba(113, 129, 224, 0.12);
 }
 .sw-opt-title { font-size: 14.5px; font-weight: 700; margin-bottom: 6px; }
 .sw-opt-desc { font-size: 13.5px; color: var(--sw-text-2); line-height: 1.65; }

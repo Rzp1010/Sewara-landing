@@ -57,7 +57,7 @@ export default function HeroMockup() {
           </span>
           <span className="sw-mock-url">
             <IconCheck />
-            sewara.vercel.app
+            sewara.id
           </span>
         </div>
 
