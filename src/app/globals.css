@@ -227,35 +227,11 @@ code {
 /* ---------- 6. Logo ---------- */
 .sw-logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
 .sw-logo:hover { text-decoration: none; }
-.sw-logo-mark {
-  width: 36px;
+.sw-logo-img {
   height: 36px;
-  flex-shrink: 0;
-  display: grid;
-  place-items: center;
-  border-radius: 11px;
-  background: linear-gradient(135deg, var(--sw-primary) 0%, var(--sw-primary-active) 100%);
-  color: #fff;
-  font-size: 19px;
-  font-weight: 800;
-  line-height: 1;
-  box-shadow: 0 8px 18px var(--sw-primary-glow);
-  position: relative;
-  overflow: hidden;
+  width: auto;
+  display: block;
 }
-.sw-logo-mark::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.25), transparent 45%);
-}
-.sw-logo-text {
-  font-size: 21px;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: var(--sw-text);
-}
-.sw-logo-text b { color: var(--sw-primary); }
 
 /* ---------- 7. Navbar ---------- */
 .sw-nav {
@@ -782,7 +758,6 @@ code {
   max-width: 340px;
   margin-top: 16px;
 }
-.sw-footer-brand .sw-logo-text { font-size: 19px; }
 .sw-footer-col h4 {
   font-size: 12.5px;
   font-weight: 700;
