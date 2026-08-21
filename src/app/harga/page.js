@@ -102,13 +102,6 @@ export default function HargaPage() {
         {/* PRICING CARDS */}
         <section className="sw-section" aria-labelledby="plans-title">
           <div className="sw-container">
-            <div style={{ textAlign: "center", marginBottom: 40 }}>
-              <h2 id="plans-title" className="sw-section-title" style={{ marginBottom: 8 }}>
-                Paket Harga
-              </h2>
-              <p className="sw-section-sub">Pilih yang sesuai kebutuhan. Semua harga sudah termasuk PPN.</p>
-            </div>
-
             <div className="sw-pricing-grid">
               {PLANS.map((plan, i) => (
                 <Reveal key={plan.name} delay={280 + i * 80}>
