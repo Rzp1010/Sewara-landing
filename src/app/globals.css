@@ -1133,14 +1133,11 @@ code {
 
 /* Billing toggle */
 .sw-billing-toggle {
-  display: flex;
-  flex-direction: column;
+  display: inline-flex;
   background: var(--sw-subtle);
   border-radius: 12px;
   padding: 4px;
-  gap: 8px;
-  max-width: 320px;
-  margin: 0 auto;
+  gap: 4px;
 }
 .sw-billing-btn {
   border: none;
