@@ -73,20 +73,11 @@ export default function HargaPage() {
           <div className="sw-container">
             <div className="sw-hero-inner" style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
               <Reveal delay={40}>
-                <span className="sw-hero-eyebrow" style={{ display: "inline-block" }}>Harga Transparan</span>
-              </Reveal>
-              <Reveal delay={100}>
                 <h1 id="harga-hero-title" className="sw-hero-title">
                   Pilih Paket <span className="sw-accent-text">Sesuai Skala Bisnismu</span>
                 </h1>
               </Reveal>
-              <Reveal delay={160}>
-                <p className="sw-hero-sub">
-                  Semua paket dapat akses penuh fitur inti Sewara. Upgrade/downgrade kapan saja, prorata otomatis.
-                  <strong>Trial 14 hari gratis, tanpa kartu kredit.</strong>
-                </p>
-              </Reveal>
-              <Reveal delay={220}>
+              <Reveal delay={100}>
                 <div className="sw-billing-toggle" role="group" aria-label="Pilih siklus penagihan">
                   <button
                     className={`sw-billing-btn ${billing === "monthly" ? "active" : ""}`}
