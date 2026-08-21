@@ -1111,6 +1111,222 @@ code {
 .sw-tbl--ex th { background: var(--sw-primary); color: #fff; }
 .sw-tbl--ex tr:nth-child(even) td { background: var(--sw-subtle); }
 
+/* ===== PRICING PAGE ===== */
+.sw-section--hero { padding: 96px 0 64px; }
+.sw-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sw-primary);
+  background: var(--sw-primary-soft);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
+.sw-section-title { font-size: 28px; font-weight: 800; color: var(--sw-text); }
+.sw-section-sub { font-size: 16px; color: var(--sw-text-2); }
+
+/* Billing toggle */
+.sw-billing-toggle {
+  display: inline-flex;
+  background: var(--sw-subtle);
+  border-radius: 12px;
+  padding: 4px;
+  gap: 4px;
+}
+.sw-billing-btn {
+  border: none;
+  background: transparent;
+  color: var(--sw-text-2);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all var(--sw-fast);
+}
+.sw-billing-btn:hover { color: var(--sw-text); }
+.sw-billing-btn.active {
+  background: var(--sw-surface);
+  color: var(--sw-primary);
+  box-shadow: var(--sw-shadow-sm);
+}
+
+/* Pricing grid */
+.sw-pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  max-width: 520px;
+  margin: 0 auto;
+  gap: 28px;
+}
+.sw-pricing-card {
+  position: relative;
+  background: var(--sw-surface);
+  border: 1px solid var(--sw-border);
+  border-radius: var(--sw-r-lg);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--sw-base), box-shadow var(--sw-base), border-color var(--sw-base);
+}
+.sw-pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sw-shadow-lg);
+  border-color: var(--sw-border-soft);
+}
+.sw-pricing-card--highlight {
+  border-color: var(--sw-primary);
+  box-shadow: 0 20px 40px rgba(113, 129, 224, 0.15);
+}
+.sw-pricing-card--highlight::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--sw-primary), var(--sw-primary-hover));
+  border-radius: var(--sw-r-lg) var(--sw-r-lg) 0 0;
+}
+.sw-pricing-head { text-align: center; margin-bottom: 28px; }
+.sw-pricing-name { font-size: 20px; font-weight: 800; color: var(--sw-text); margin-bottom: 6px; }
+.sw-pricing-tagline { font-size: 14px; color: var(--sw-text-2); margin-bottom: 20px; }
+.sw-pricing-price { display: flex; align-items: baseline; justify-content: center; gap: 4px; margin-bottom: 8px; }
+.sw-pricing-amount { font-size: 40px; font-weight: 800; color: var(--sw-text); line-height: 1; }
+.sw-pricing-period { font-size: 16px; color: var(--sw-text-2); margin-bottom: 4px; }
+.sw-pricing-yearly { font-size: 13px; color: var(--sw-text-3); margin: 0; }
+.sw-pricing-yearly strong { color: var(--sw-text); }
+
+/* Features list */
+.sw-pricing-features {
+  list-style: none;
+  padding: 0; margin: 0 0 24px;
+  display: flex; flex-direction: column; gap: 14px;
+  flex: 1;
+}
+.sw-pricing-feat {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: var(--sw-text);
+  line-height: 1.5;
+}
+.sw-pricing-feat-icon {
+  width: 18px; height: 18px;
+  color: var(--sw-success);
+  flex-shrink: 0; margin-top: 2px;
+}
+
+/* Limits */
+.sw-pricing-limits {
+  display: flex; flex-direction: column; gap: 12px;
+  padding-top: 20px; border-top: 1px solid var(--sw-border-soft);
+  margin-bottom: 28px;
+}
+.sw-pricing-limit {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13.5px; color: var(--sw-text-2);
+}
+.sw-pricing-limit-icon { width: 16px; height: 16px; color: var(--sw-primary); flex-shrink: 0; }
+.sw-pricing-limit strong { color: var(--sw-text); }
+.sw-pricing-limit span { margin-left: 2px; }
+
+/* Popular badge */
+.sw-pricing-popular {
+  text-align: center;
+  font-size: 12px; font-weight: 700;
+  color: var(--sw-primary);
+  background: var(--sw-primary-soft);
+  padding: 6px 16px; border-radius: 999px;
+  display: inline-block; margin: 0 auto;
+  text-transform: uppercase; letter-spacing: 0.05em;
+}
+
+/* Comparison table */
+.sw-tbl--compare th {
+  background: var(--sw-subtle);
+  color: var(--sw-text);
+  font-weight: 700;
+}
+.sw-tbl--compare td { text-align: center; }
+.sw-tbl-feature {
+  text-align: left !important;
+  font-size: 14px;
+}
+.sw-tbl-category {
+  display: inline-block;
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--sw-primary);
+  background: var(--sw-primary-soft);
+  padding: 2px 8px; border-radius: 4px;
+  margin-right: 10px;
+}
+.sw-tbl-check { width: 48px; }
+.sw-tbl-check-icon { width: 18px; height: 18px; color: var(--sw-success); margin: 0 auto; }
+.sw-tbl-check-icon--no { color: var(--sw-text-3); opacity: 0.4; }
+.sw-tbl--group-start td { border-top: 2px solid var(--sw-border); }
+
+/* FAQ */
+.sw-faq { display: flex; flex-direction: column; gap: 10px; }
+.sw-faq-item {
+  border: 1px solid var(--sw-border);
+  border-radius: var(--sw-r-md);
+  background: var(--sw-surface);
+  overflow: hidden;
+}
+.sw-faq-q {
+  padding: 18px 22px;
+  font-size: 15px; font-weight: 600; color: var(--sw-text);
+  cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  list-style: none;
+}
+.sw-faq-q::-webkit-details-marker { display: none; }
+.sw-faq-q::after {
+  content: "";
+  width: 20px; height: 20px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") center/contain no-repeat;
+  transition: transform var(--sw-fast);
+}
+.sw-faq-item[open] .sw-faq-q::after { transform: rotate(180deg); }
+.sw-faq-a {
+  padding: 0 22px 18px;
+  font-size: 14px; color: var(--sw-text-2);
+  line-height: 1.7;
+}
+
+/* CTA section */
+.sw-section--cta {
+  background: linear-gradient(135deg, var(--sw-primary) 0%, var(--sw-primary-active) 100%);
+  padding: 80px 0;
+}
+.sw-section--cta .sw-section-title { color: #fff; }
+.sw-section--cta .sw-section-sub { color: rgba(255,255,255,0.85); }
+.sw-section--cta .sw-btn--primary {
+  background: #fff; color: var(--sw-primary);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.sw-section--cta .sw-btn--primary:hover {
+  background: var(--sw-subtle); transform: translateY(-2px);
+}
+
+/* Responsive pricing */
+@media (max-width: 980px) {
+  .sw-pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+  .sw-section--hero { padding: 72px 0 48px; }
+}
+@media (max-width: 640px) {
+  .sw-pricing-card { padding: 28px 24px; }
+  .sw-pricing-amount { font-size: 32px; }
+  .sw-section-title { font-size: 22px; }
+}
+
+/* Existing media queries below */
+
 /* Kartu opsi (Tambahan) */
 .sw-opt { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
 .sw-opt-card {

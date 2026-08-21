@@ -124,7 +124,11 @@ export default function Page() {
                   Masuk ke Aplikasi
                   <IconArrowRight />
                 </a>
-                <a className="sw-btn sw-btn--outline sw-btn--lg" href="/panduan">
+                <a className="sw-btn sw-btn--outline sw-btn--lg" href="/harga">
+                  <IconTag />
+                  Lihat Harga
+                </a>
+                <a className="sw-btn sw-btn--ghost sw-btn--lg" href="/panduan">
                   <IconBook />
                   Baca Panduan
                 </a>
