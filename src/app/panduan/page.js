@@ -1,7 +1,7 @@
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import PanduanToc from "../../components/PanduanToc";
-import { Steps, Step, Note, Warn, OptCards, OptCard, ICho, IChos, Badge, Bullets } from "../../components/guide";
+import { Steps, Step, Note, Warn, OptCards, OptCard, ICho, IChos, Badge, Bullets, Tbl, TH, TD, TR } from "../../components/guide";
 import { IconBook } from "../../components/icons";
 
 export const metadata = {
@@ -17,10 +17,11 @@ const TOC = [
     label: "Inventaris",
     id: "inventaris",
     title: "Menambahkan Inventaris",
-    sub: [
-      { id: "tambah-manual", title: "Tambah Manual" },
-      { id: "import-csv", title: "Import CSV" },
-    ],
+      sub: [
+        { id: "tambah-manual", title: "Tambah Manual" },
+        { id: "import-csv", title: "Import CSV" },
+        { id: "panduan-csv", title: "Panduan Template CSV" },
+      ],
   },
   { label: "Operasional", id: "booking", title: "Membuat Booking" },
   { label: "Operasional", id: "status", title: "Status Sewa" },
@@ -189,6 +190,64 @@ export default function PanduanPage() {
                 Klik <strong>"Upload"</strong>, semua data akan otomatis masuk ke inventaris.
               </Step>
             </Steps>
+
+            <h3 id="panduan-csv">Panduan Mengisi Template CSV</h3>
+            <p style={{ color: "var(--sw-text-2)", marginBottom: 16 }}>
+              Template CSV terdiri dari 10 kolom. Jangan mengubah nama kolom di baris pertama — template tidak
+              akan terbaca jika header diubah.
+            </p>
+
+            <Tbl>
+              <thead>
+                <TR>
+                  <TH>Kolom</TH>
+                  <TH>Wajib</TH>
+                  <TH>Keterangan</TH>
+                </TR>
+              </thead>
+              <tbody>
+                <TR><TD><code>NamaAlat</code></TD><TD><Badge tone="danger">Wajib</Badge></TD><TD>Nama alat yang akan disewakan. Contoh: <code>Sony A7C</code></TD></TR>
+                <TR><TD><code>TipeSewa</code></TD><TD><Badge tone="danger">Wajib</Badge></TD><TD>Isi dengan <code>Fleksibel</code> atau <code>Harian</code></TD></TR>
+                <TR><TD><code>Harga6J</code></TD><TD><Badge tone="warning">Kondisional</Badge></TD><TD>Tarif sewa 6 jam. Wajib diisi jika TipeSewa = <code>Fleksibel</code>. Kosongkan jika <code>Harian</code></TD></TR>
+                <TR><TD><code>Harga12J</code></TD><TD><Badge tone="warning">Kondisional</Badge></TD><TD>Tarif sewa 12 jam. Wajib diisi jika TipeSewa = <code>Fleksibel</code>. Kosongkan jika <code>Harian</code></TD></TR>
+                <TR><TD><code>Harga24J</code></TD><TD><Badge tone="danger">Wajib</Badge></TD><TD>Tarif sewa 24 jam. Wajib diisi untuk semua tipe sewa</TD></TR>
+                <TR><TD><code>Denda/Jam</code></TD><TD><Badge tone="danger">Wajib</Badge></TD><TD>Denda keterlambatan per jam. Isi <code>0</code> jika tidak ada denda</TD></TR>
+                <TR><TD><code>NomorSeri</code></TD><TD><Badge tone="danger">Wajib</Badge></TD><TD>Nomor seri alat. Jika lebih dari 1 unit, pisahkan dengan garis miring <code>/</code> tanpa spasi. Contoh: <code>K1/K2/K3</code></TD></TR>
+                <TR><TD><code>Kondisi</code></TD><TD><Badge tone="danger">Wajib</Badge></TD><TD>Kondisi fisik alat. Isi dengan <code>Sangat Baik</code>, <code>Baik</code>, atau <code>Cukup</code></TD></TR>
+                <TR><TD><code>Keterangan</code></TD><TD><Badge tone="neutral">Opsional</Badge></TD><TD>Catatan tambahan tentang alat. Boleh dikosongkan</TD></TR>
+                <TR><TD><code>Tag Kategori</code></TD><TD><Badge tone="neutral">Opsional</Badge></TD><TD>Kategori alat untuk pengelompokan. Contoh: <code>Kamera</code>, <code>Lensa</code>, <code>Lighting</code></TD></TR>
+              </tbody>
+            </Tbl>
+
+            <h4 style={{ marginTop: 28, marginBottom: 12 }}>Contoh Pengisian</h4>
+            <Tbl variant="example">
+              <thead>
+                <TR>
+                  <TH>NamaAlat</TH><TH>TipeSewa</TH><TH>Harga6J</TH><TH>Harga12J</TH>
+                  <TH>Harga24J</TH><TH>Denda/Jam</TH><TH>NomorSeri</TH><TH>Kondisi</TH>
+                  <TH>Keterangan</TH><TH>Tag Kategori</TH>
+                </TR>
+              </thead>
+              <tbody>
+                <TR><TD>Sony A7C</TD><TD>Fleksibel</TD><TD>210000</TD><TD>240000</TD><TD>270000</TD><TD>0</TD><TD>K1/K2</TD><TD>Sangat Baik</TD><TD></TD><TD>Kamera</TD></TR>
+                <TR><TD>Sony A7ii</TD><TD>Fleksibel</TD><TD>145000</TD><TD>160000</TD><TD>185000</TD><TD>5000</TD><TD>K3</TD><TD>Baik</TD><TD>Ada goresan kecil di body</TD><TD>Kamera</TD></TR>
+                <TR><TD>Tripod Profesional</TD><TD>Harian</TD><TD></TD><TD></TD><TD>50000</TD><TD>0</TD><TD>T1/T2/T3</TD><TD>Baik</TD><TD></TD><TD>Aksesoris</TD></TR>
+              </tbody>
+            </Tbl>
+
+            <h4 style={{ marginTop: 28, marginBottom: 12 }}>Hal Penting</h4>
+            <Bullets>
+              <li>Isi tarif dalam angka saja, <strong>tanpa titik, koma, atau Rp</strong>. Contoh: <code>270000</code> bukan <code>Rp270.000</code></li>
+              <li>Jika TipeSewa = <code>Harian</code>, kolom Harga6J dan Harga12J <strong>boleh dikosongkan</strong></li>
+              <li>Jika TipeSewa = <code>Fleksibel</code>, kolom Harga6J dan Harga12J <strong>wajib diisi</strong> — jika kosong, produk tidak akan tersimpan</li>
+              <li>Pisahkan nomor seri dengan <code>/</code> tanpa spasi. Contoh: <code>K1/K2/K3</code></li>
+              <li><strong>Jangan ubah nama kolom</strong> di baris pertama — template tidak akan terbaca jika header diubah</li>
+            </Bullets>
+
+            <Warn title="Setelah selesai mengisi">
+              Unduh file dari Google Sheets dalam format <strong>CSV</strong> — bukan format XLSX atau format
+              lainnya. Klik <strong>File &rarr; Download &rarr; Comma Separated Values (.csv)</strong>
+            </Warn>
           </section>
 
           {/* BAGIAN 4: BOOKING */}

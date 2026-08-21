@@ -226,6 +226,8 @@ code {
 .sw-badge--selesai   { background: var(--sw-success-soft); color: var(--sw-success-text); }
 .sw-badge--primary   { background: var(--sw-primary-soft); color: var(--sw-primary-soft-text); }
 .sw-badge--neutral   { background: var(--sw-subtle); color: var(--sw-text-2); }
+.sw-badge--danger    { background: var(--sw-danger-soft); color: var(--sw-danger-text); }
+.sw-badge--warning   { background: var(--sw-warning-soft); color: var(--sw-warning-text); }
 
 /* ---------- 6. Logo ---------- */
 .sw-logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
@@ -1105,6 +1107,9 @@ code {
 .sw-tbl tbody tr:last-child td { border-bottom: 0; }
 .sw-tbl tbody tr { transition: background-color var(--sw-fast); }
 .sw-tbl tbody tr:hover { background: var(--sw-primary-soft); }
+
+.sw-tbl--ex th { background: var(--sw-primary); color: #fff; }
+.sw-tbl--ex tr:nth-child(even) td { background: var(--sw-subtle); }
 
 /* Kartu opsi (Tambahan) */
 .sw-opt { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }

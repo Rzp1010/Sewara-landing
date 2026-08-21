@@ -67,3 +67,24 @@ export function IChos({ children }) {
 export function Badge({ tone = "neutral", children }) {
   return <span className={`sw-badge sw-badge--${tone}`}>{children}</span>;
 }
+
+export function Tbl({ children, variant = "default" }) {
+  const cls = variant === "example" ? "sw-tbl sw-tbl--ex" : "sw-tbl";
+  return (
+    <div className="sw-tbl-wrap">
+      <table className={cls}>{children}</table>
+    </div>
+  );
+}
+
+export function TH({ children }) {
+  return <th>{children}</th>;
+}
+
+export function TD({ children }) {
+  return <td>{children}</td>;
+}
+
+export function TR({ children }) {
+  return <tr>{children}</tr>;
+}
