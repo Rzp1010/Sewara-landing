@@ -75,7 +75,8 @@ export default function HargaPage() {
                 <div className="sw-hero-inner" style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
                   <Reveal delay={40}>
                     <h1 id="harga-hero-title" className="sw-hero-title">
-                      Pilih Paket <span className="sw-accent-text">Sesuai Skala Bisnismu</span>
+                      Pilih Paket<br />
+                      <span className="sw-accent-text">Sesuai Skala Bisnismu</span>
                     </h1>
                   </Reveal>
                 </div>
