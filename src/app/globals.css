@@ -1131,14 +1131,14 @@ code {
 .sw-section-title { font-size: 28px; font-weight: 800; color: var(--sw-text); }
 .sw-section-sub { font-size: 16px; color: var(--sw-text-2); }
 
-/* Billing toggle */
-.sw-billing-toggle {
-  display: inline-flex;
-  background: var(--sw-subtle);
-  border-radius: 12px;
-  padding: 4px;
-  gap: 4px;
+/* Pricing header wrapper */
+.sw-pricing-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
+
 .sw-billing-btn {
   border: none;
   background: transparent;

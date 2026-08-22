@@ -69,35 +69,37 @@ export default function HargaPage() {
       <Navbar />
       <main>
         {/* HERO */}
-        <section className="sw-section sw-section--hero" aria-labelledby="harga-hero-title">
-          <div className="sw-container">
-            <div className="sw-hero-inner" style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
-              <Reveal delay={40}>
-                <h1 id="harga-hero-title" className="sw-hero-title">
-                  Pilih Paket <span className="sw-accent-text">Sesuai Skala Bisnismu</span>
-                </h1>
-              </Reveal>
-              <Reveal delay={100}>
-                <div className="sw-billing-toggle" role="group" aria-label="Pilih siklus penagihan">
-                  <button
-                    className={`sw-billing-btn ${billing === "monthly" ? "active" : ""}`}
-                    onClick={() => setBilling("monthly")}
-                    aria-pressed={billing === "monthly"}
-                  >
-                    Bulanan
-                  </button>
-                  <button
-                    className={`sw-billing-btn ${billing === "yearly" ? "active" : ""}`}
-                    onClick={() => setBilling("yearly")}
-                    aria-pressed={billing === "yearly"}
-                  >
-                    Tahunan <span className="sw-badge sw-badge--primary" style={{ marginLeft: 8, fontSize: 11 }}>Hemat 20%</span>
-                  </button>
+<section className="sw-section sw-section--hero" aria-labelledby="harga-hero-title">
+            <div className="sw-container">
+              <div className="sw-pricing-header" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1rem" }}>
+                <div className="sw-hero-inner" style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
+                  <Reveal delay={40}>
+                    <h1 id="harga-hero-title" className="sw-hero-title">
+                      Pilih Paket <span className="sw-accent-text">Sesuai Skala Bisnismu</span>
+                    </h1>
+                  </Reveal>
                 </div>
-              </Reveal>
+                <Reveal delay={100}>
+                  <div className="sw-billing-toggle" role="group" aria-label="Pilih siklus penagihan">
+                    <button
+                      className={`sw-billing-btn ${billing === "monthly" ? "active" : ""}`}
+                      onClick={() => setBilling("monthly")}
+                      aria-pressed={billing === "monthly"}
+                    >
+                      Bulanan
+                    </button>
+                    <button
+                      className={`sw-billing-btn ${billing === "yearly" ? "active" : ""}`}
+                      onClick={() => setBilling("yearly")}
+                      aria-pressed={billing === "yearly"}
+                    >
+                      Tahunan <span className="sw-badge sw-badge--primary" style={{ marginLeft: 8, fontSize: 11 }}>Hemat 20%</span>
+                    </button>
+                  </div>
+                </Reveal>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
         {/* PRICING CARDS */}
         <section className="sw-section" aria-labelledby="plans-title">
