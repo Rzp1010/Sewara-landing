@@ -1199,6 +1199,7 @@ code {
 .sw-pricing-price { display: flex; align-items: baseline; justify-content: center; gap: 4px; margin-bottom: 8px; }
 .sw-pricing-amount { font-size: 40px; font-weight: 800; color: var(--sw-text); line-height: 1; }
 .sw-pricing-period { font-size: 16px; color: var(--sw-text-2); margin-bottom: 4px; }
+.sw-pricing-badge { margin: 12px 0 8px; }
 .sw-pricing-yearly { font-size: 13px; color: var(--sw-text-3); margin: 0; }
 .sw-pricing-yearly strong { color: var(--sw-text); }
 

@@ -13,24 +13,55 @@ import {
 
 const PLANS = [
   {
-    name: "Sewara Pro",
-    tagline: "Semua fitur untuk kelola rental lengkap",
-    price: { monthly: 249000, yearly: 199000 },
+    name: "Basic",
+    tagline: "Untuk usaha kecil dengan kebutuhan sederhana",
+    price: { monthly: 0, yearly: 0 },
+    priceLabel: "Custom",
+    minTransactions: "≥10 transaksi/bulan",
     features: [
       "Inventaris alat & nomor seri",
       "Booking & kalender",
       "Status sewa kanban",
+      "Laporan dasar",
+      "Invoice PDF",
+    ],
+    cta: "Hubungi Kami",
+  },
+  {
+    name: "Pro",
+    tagline: "Untuk bisnis rental yang berkembang",
+    price: { monthly: 0, yearly: 0 },
+    priceLabel: "Custom",
+    minTransactions: "≥50 transaksi/bulan",
+    highlight: true,
+    features: [
+      "Semua fitur Basic",
       "Tracking mode tabel & timeline",
       "Import CSV massal",
       "Paket/Bundling alat",
       "Promo & diskon otomatis",
-      "Laporan & invoice PDF",
       "Member & riwayat sewa",
       "Notifikasi Telegram",
-      "Multi-user & Role (Owner, CS, Gudang)",
-      "Email + chat support",
+      "Multi-user & Role (Owner, CS)",
+      "Email support",
     ],
-    cta: "Mulai Gratis 14 Hari",
+    cta: "Hubungi Kami",
+  },
+  {
+    name: "Enterprise",
+    tagline: "Untuk operasional skala besar",
+    price: { monthly: 0, yearly: 0 },
+    priceLabel: "Custom",
+    minTransactions: "≥200 transaksi/bulan",
+    features: [
+      "Semua fitur Pro",
+      "Multi-user & Role (Owner, CS, Gudang)",
+      "Custom domain",
+      "Priority support 24/7",
+      "Training & onboarding",
+      "API access",
+    ],
+    cta: "Hubungi Kami",
   },
 ];
 
@@ -114,11 +145,16 @@ export default function HargaPage() {
                       <p className="sw-pricing-tagline">{plan.tagline}</p>
                       <div className="sw-pricing-price">
                         <span className="sw-pricing-amount">
-                          Rp{plan.price[billing].toLocaleString("id-ID")}
+                          {plan.priceLabel || `Rp${plan.price[billing].toLocaleString("id-ID")}`}
                         </span>
-                        <span className="sw-pricing-period">/bulan</span>
+                        {!plan.priceLabel && <span className="sw-pricing-period">/bulan</span>}
                       </div>
-                      {billing === "yearly" && (
+                      {plan.minTransactions && (
+                        <p className="sw-pricing-badge">
+                          <span className="sw-badge sw-badge--info">{plan.minTransactions}</span>
+                        </p>
+                      )}
+                      {billing === "yearly" && !plan.priceLabel && (
                         <p className="sw-pricing-yearly">
                           Dibayar <strong>Rp{(plan.price.yearly * 12).toLocaleString("id-ID")}</strong> /tahun
                         </p>
