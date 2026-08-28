@@ -1160,11 +1160,10 @@ code {
 /* Pricing grid */
 .sw-pricing-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  max-width: 520px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
   margin: 0 auto;
-  gap: 28px;
 }
 .sw-pricing-card {
   position: relative;
