@@ -24,7 +24,16 @@ const TOC = [
       ],
   },
   { label: "Operasional", id: "booking", title: "Membuat Booking" },
-  { label: "Operasional", id: "status", title: "Status Sewa" },
+  {
+    label: "Operasional",
+    id: "status",
+    title: "Status Sewa",
+    sub: [
+      { id: "serah-terima", title: "Serah Terima Alat" },
+      { id: "terima-kembali", title: "Terima Alat Kembali" },
+      { id: "bayar-sisa", title: "Catat Pembayaran Sisa" },
+    ],
+  },
   {
     label: "Operasional",
     id: "tracking",
@@ -299,67 +308,176 @@ export default function PanduanPage() {
               <Step n={1}>Klik menu <strong>"Operasional"</strong> di sidebar kiri.</Step>
               <Step n={2}>Pilih submenu <strong>"Status Sewa"</strong>.</Step>
               <Step n={3}>
-                Halaman akan menampilkan <strong>papan kanban</strong> dengan beberapa kolom status.
-              </Step>
-            </Steps>
-
-            <h3>Yang Bisa Dilakukan di Halaman Ini</h3>
-            <Steps>
-              <Step n="✓">
-                <strong>Lihat detail transaksi</strong>, klik tombol <strong>"Detail"</strong> di kartu booking.
-              </Step>
-              <Step n="✓">
-                <strong>Catat pembayaran</strong>, klik tombol <strong>"Bayar"</strong>, atau saat mengubah
-                status booking yang belum lunas, form pembayaran akan otomatis muncul.
-              </Step>
-              <Step n="✓">
-                <p><strong>Ubah status booking</strong> dengan 2 cara:</p>
-                <Bullets>
-                  <div><span>Klik tombol <strong>"Serahkan"</strong> (Booking → Disewa) atau <strong>"Terima"</strong> (Disewa → Selesai)</span></div>
-                  <div><span>Atau <strong>drag and drop</strong> kartu ke kolom status berikutnya</span></div>
-                </Bullets>
+                Halaman menampilkan <strong>papan kanban</strong> dengan kolom-kolom status.
               </Step>
             </Steps>
 
             <h3>Penjelasan Kolom Kanban</h3>
-            <div className="sw-tbl-wrap">
-              <table className="sw-tbl">
-                <thead>
-                  <tr>
-                    <th>Kolom</th>
-                    <th>Keterangan</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><Badge tone="booking">Booking</Badge></td>
-                    <td>Sudah dibooking, belum diserahkan ke penyewa.</td>
-                  </tr>
-                  <tr>
-                    <td><Badge tone="disewa">Disewa</Badge></td>
-                    <td>Alat sudah diserahkan ke penyewa.</td>
-                  </tr>
-                  <tr>
-                    <td><Badge tone="mendekati">Mendekati</Badge></td>
-                    <td>Waktu kembali kurang dari X jam (bisa diatur di Pengaturan).</td>
-                  </tr>
-                  <tr>
-                    <td><Badge tone="telat">Telat</Badge></td>
-                    <td>Sudah melewati waktu kembali yang dijadwalkan.</td>
-                  </tr>
-                  <tr>
-                    <td><Badge tone="selesai">Selesai</Badge></td>
-                    <td>Alat sudah dikembalikan dan transaksi selesai.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <Tbl>
+              <thead>
+                <TR>
+                  <TH>Kolom</TH>
+                  <TH>Arti</TH>
+                </TR>
+              </thead>
+              <tbody>
+                <TR>
+                  <TD><Badge tone="booking">Booking</Badge></TD>
+                  <TD>Sudah dibooking, belum diserahkan ke penyewa</TD>
+                </TR>
+                <TR>
+                  <TD><Badge tone="disewa">Disewa</Badge></TD>
+                  <TD>Alat sudah diserahkan ke penyewa</TD>
+                </TR>
+                <TR>
+                  <TD><Badge tone="mendekati">Mendekati</Badge></TD>
+                  <TD>Waktu kembali kurang dari X jam (bisa diatur di Pengaturan)</TD>
+                </TR>
+                <TR>
+                  <TD><Badge tone="telat">Telat</Badge></TD>
+                  <TD>Sudah melewati jadwal kembali</TD>
+                </TR>
+                <TR>
+                  <TD><Badge tone="info">Belum Selesai</Badge></TD>
+                  <TD>Barang sudah kembali, tapi pembayaran belum lunas</TD>
+                </TR>
+                <TR>
+                  <TD><Badge tone="selesai">Selesai</Badge></TD>
+                  <TD>Alat sudah dikembalikan dan transaksi selesai</TD>
+                </TR>
+              </tbody>
+            </Tbl>
 
             <Note title="Pengaturan Kolom 'Mendekati'">
               Batas waktu kolom "Mendekati" bisa diatur di menu Pengaturan. Contoh: jika diatur 2 jam,
               maka booking yang kurang dari 2 jam dari jadwal kembali akan otomatis masuk ke kolom
               Mendekati.
             </Note>
+
+            <h3 id="serah-terima">Serah Terima Alat (Booking &rarr; Disewa)</h3>
+            <p className="sw-gs-lead">Tujuan: menandakan alat sudah diserahkan ke penyewa.</p>
+            <Steps>
+              <Step n={1}>Cari booking di kolom <strong>"Booking"</strong>.</Step>
+              <Step n={2}>Klik tombol <strong>"Serahkan"</strong>.</Step>
+              <Step n={3}>
+                Popup konfirmasi muncul — klik <strong>"Serahkan"</strong> untuk lanjut (atau{" "}
+                <strong>"Batal"</strong> untuk batal).
+              </Step>
+              <Step n={4}>
+                <p>Sistem cek pembayaran:</p>
+                <IChos>
+                  <ICho>
+                    <strong>Sudah Lunas</strong> → status langsung jadi <strong>"Disewa"</strong> ✓
+                  </ICho>
+                  <ICho>
+                    <strong>Belum Lunas</strong> → popup catat pembayaran muncul → isi &amp; klik{" "}
+                    <strong>"Simpan"</strong> → status jadi <strong>"Disewa"</strong>
+                  </ICho>
+                </IChos>
+              </Step>
+              <Step n={5}>Card berpindah ke kolom <strong>"Disewa"</strong>.</Step>
+            </Steps>
+            <Note title="Catatan">
+              Jika popup catat pembayaran ditutup, status tetap berubah ke <strong>"Disewa"</strong>,
+              tapi pembayaran belum tercatat.
+            </Note>
+
+            <h3 id="terima-kembali">Terima Alat Kembali (Disewa &rarr; Selesai/Belum Selesai)</h3>
+            <p className="sw-gs-lead">
+              Tujuan: menerima alat kembali, cek kondisi, dan ubah status sesuai pembayaran.
+            </p>
+            <Steps>
+              <Step n={1}>
+                Cari booking di kolom <strong>"Disewa"</strong>, <strong>"Mendekati"</strong>, atau{" "}
+                <strong>"Telat"</strong>.
+              </Step>
+              <Step n={2}>Klik tombol <strong>"Terima"</strong>.</Step>
+              <Step n={3}>
+                Popup konfirmasi muncul — klik <strong>"Terima"</strong> untuk lanjut.
+              </Step>
+              <Step n={4}>
+                <p>Sistem cek pembayaran:</p>
+                <Bullets>
+                  <div>
+                    <span>
+                      <strong>Belum Lunas</strong> → popup catat pembayaran muncul → isi &amp; klik{" "}
+                      <strong>"Simpan"</strong> (atau tutup untuk skip)
+                    </span>
+                  </div>
+                </Bullets>
+              </Step>
+              <Step n={5}>
+                <p>
+                  Popup <strong>"Cek Kondisi Unit"</strong> muncul — untuk setiap alat, pilih kondisi:
+                </p>
+                <IChos>
+                  <ICho>
+                    <strong>Baik</strong> — tidak ada masalah.
+                  </ICho>
+                  <ICho>
+                    <strong>Bermasalah</strong> — wajib isi catatan (contoh: "Layar pecah",
+                    "Baterai rusak", dll).
+                  </ICho>
+                </IChos>
+              </Step>
+              <Step n={6}>
+                <p>Klik <strong>"Simpan"</strong>:</p>
+                <IChos>
+                  <ICho>
+                    Pembayaran <strong>Lunas</strong> → status jadi <strong>"Selesai"</strong> ✓
+                  </ICho>
+                  <ICho>
+                    Pembayaran <strong>Belum Lunas</strong> → status jadi{" "}
+                    <strong>"Belum Selesai"</strong>
+                  </ICho>
+                </IChos>
+              </Step>
+            </Steps>
+
+            <h3 id="bayar-sisa">Catat Pembayaran Sisa (Belum Selesai &rarr; Selesai)</h3>
+            <p className="sw-gs-lead">Tujuan: melunasi pembayaran yang masih tertunda.</p>
+            <Steps>
+              <Step n={1}>Cari booking di kolom <strong>"Belum Selesai"</strong>.</Step>
+              <Step n={2}>
+                Klik tombol <strong>"Bayar"</strong> atau <strong>"Catat Pembayaran"</strong>.
+              </Step>
+              <Step n={3}>
+                <p>Popup catat pembayaran muncul, isi:</p>
+                <Bullets>
+                  <div><span><strong>Jumlah Bayar</strong></span></div>
+                  <div><span><strong>Metode</strong> (Tunai / Transfer / QRIS)</span></div>
+                  <div><span><strong>Catatan</strong> (opsional)</span></div>
+                </Bullets>
+              </Step>
+              <Step n={4}>
+                <p>Klik <strong>"Simpan"</strong>:</p>
+                <IChos>
+                  <ICho>
+                    Jika <strong>Lunas</strong> → status jadi <strong>"Selesai"</strong> ✓
+                  </ICho>
+                  <ICho>
+                    Jika <strong>Belum Lunas</strong> → tetap di <strong>"Belum Selesai"</strong>,
+                    ringkasan sisa ter-update
+                  </ICho>
+                </IChos>
+              </Step>
+            </Steps>
+
+            <h3>Tips</h3>
+            <Bullets>
+              <li>
+                Klik tombol <strong>"Detail"</strong> di card booking untuk lihat informasi lengkap
+                sebelum ambil aksi.
+              </li>
+              <li>
+                <strong>Drag &amp; drop</strong> card ke kolom lain sebagai alternatif klik tombol
+                (jika app support).
+              </li>
+              <li>
+                Catat pembayaran bisa dilakukan di mana saja — saat serah, saat terima, atau nanti dari
+                kolom <strong>"Belum Selesai"</strong>.
+              </li>
+            </Bullets>
           </section>
 
           {/* BAGIAN 6: TRACKING */}

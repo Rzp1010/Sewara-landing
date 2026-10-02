@@ -228,6 +228,7 @@ code {
 .sw-badge--neutral   { background: var(--sw-subtle); color: var(--sw-text-2); }
 .sw-badge--danger    { background: var(--sw-danger-soft); color: var(--sw-danger-text); }
 .sw-badge--warning   { background: var(--sw-warning-soft); color: var(--sw-warning-text); }
+.sw-badge--info      { background: var(--sw-info-soft); color: var(--sw-info-text); }
 
 /* ---------- 6. Logo ---------- */
 .sw-logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
