@@ -11,5 +11,8 @@
     "next": "^15.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
+  },
+  "optionalDependencies": {
+    "@next/swc-linux-x64-gnu": "^15.5.23"
   }
 }
