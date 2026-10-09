@@ -154,120 +154,82 @@ export default function PanduanPage() {
             </Note>
 
             <h3 id="opsi-cetak">B. Opsi Cetak Invoice</h3>
-            <h4>Cetak 2 Salinan dalam 1 Halaman A4 Landscape</h4>
-            <p className="sw-gs-lead">Toggle Aktif/Nonaktif.</p>
-            <IChos>
-              <ICho>
-                <strong>Aktif</strong> → semua invoice yang dicetak menampilkan <strong>2 salinan
-                identik dalam 1 halaman A4 landscape</strong>. User bisa langsung potong untuk 1 copy
-                pelanggan &amp; 1 copy arsip toko.
-              </ICho>
-              <ICho>
-                <strong>Nonaktif</strong> → cetak normal <strong>1 salinan per halaman</strong>{" "}
-                (A4 portrait).
-              </ICho>
-            </IChos>
-
-            <h4>Kolom Tanda Tangan</h4>
-            <p className="sw-gs-lead">
-              Toggle Aktif/Nonaktif untuk menampilkan area tanda tangan di invoice. Area ini untuk
-              tanda tangan manual (ditulis tangan di kertas saat cetak).
-            </p>
+            <Steps>
+              <Step n={1}>
+                <strong>Cetak 2 salinan dalam 1 halaman A4 landscape</strong>
+                <Bullets>
+                  <li>Aktif: invoice dicetak dengan 2 salinan identik dalam 1 halaman A4 landscape, untuk pelanggan dan arsip toko.</li>
+                  <li>Nonaktif: invoice dicetak normal, 1 salinan per halaman dalam A4 portrait.</li>
+                </Bullets>
+              </Step>
+              <Step n={2}>
+                <strong>Kolom tanda tangan</strong>
+                <Bullets>
+                  <li>Aktifkan atau nonaktifkan opsi ini untuk menampilkan atau menyembunyikan area tanda tangan pada invoice.</li>
+                  <li>Area tersebut digunakan untuk tanda tangan manual pada invoice yang dicetak.</li>
+                </Bullets>
+              </Step>
+            </Steps>
 
             <h3 id="tata-letak">C. Tata Letak Invoice</h3>
-            <p className="sw-gs-lead">Mode: Default atau Custom</p>
-            <IChos>
-              <ICho>
-                <strong>Mode Default</strong> — invoice menggunakan layout bawaan Sewara dengan
-                semua field standar.
-              </ICho>
-              <ICho>
-                <strong>Mode Custom</strong> — tenant bisa customize layout invoice sesuai
-                kebutuhan. Klik <strong>"Atur Tata Letak Invoice"</strong> untuk membuka editor.
-              </ICho>
-            </IChos>
+            <p className="sw-gs-lead">Pilih mode tata letak yang ingin digunakan:</p>
+            <Bullets>
+              <li><strong>Default:</strong> menggunakan layout bawaan Sewara dengan field standar.</li>
+              <li><strong>Custom:</strong> atur layout sesuai kebutuhan. Klik <strong>"Atur Tata Letak Invoice"</strong> untuk membuka editor.</li>
+            </Bullets>
 
             <h4>8 Block Layout</h4>
-            <Tbl>
-              <thead>
-                <TR>
-                  <TH>Block</TH>
-                  <TH>Nama</TH>
-                  <TH>Status</TH>
-                  <TH>Keterangan</TH>
-                </TR>
-              </thead>
-              <tbody>
-                <TR><TD>A</TD><TD>Header</TD><TD><Badge tone="neutral">Customizable</Badge></TD><TD>Upload gambar/logo (JPG/PNG, max 5MB). Rasio 4:1–8:1, lebar ideal 1600px</TD></TR>
-                <TR><TD>B</TD><TD>Info Booking</TD><TD><Badge tone="neutral">Customizable</Badge></TD><TD>Pilih field info booking</TD></TR>
-                <TR><TD>C</TD><TD>Kiri</TD><TD><Badge tone="neutral">Customizable</Badge></TD><TD>Pilih field dari dropdown</TD></TR>
-                <TR><TD>D</TD><TD>Kanan</TD><TD><Badge tone="neutral">Customizable</Badge></TD><TD>Pilih field dari dropdown</TD></TR>
-                <TR><TD>E</TD><TD>List Alat</TD><TD><Badge tone="danger">LOCKED</Badge></TD><TD>Daftar alat yang disewa (tidak bisa diubah)</TD></TR>
-                <TR><TD>F</TD><TD>Kiri Bawah</TD><TD><Badge tone="neutral">Customizable</Badge></TD><TD>Pilih field dari dropdown</TD></TR>
-                <TR><TD>G</TD><TD>Total Harga</TD><TD><Badge tone="danger">LOCKED</Badge></TD><TD>Total harga sewa (tidak bisa diubah)</TD></TR>
-                <TR><TD>H</TD><TD>Footer</TD><TD><Badge tone="neutral">Customizable</Badge></TD><TD>Custom text atau tanda tangan</TD></TR>
-              </tbody>
-            </Tbl>
+            <p className="sw-gs-lead">Pada mode Custom, block berikut menentukan susunan informasi di invoice:</p>
+            <Steps>
+              <Step n={1}><strong>Header</strong> — unggah gambar/logo (JPG/PNG, maksimal 5 MB; rasio 4:1–8:1, lebar ideal 1600 px).</Step>
+              <Step n={2}><strong>Info Booking</strong> — pilih field informasi booking.</Step>
+              <Step n={3}><strong>Kiri</strong> — pilih field dari dropdown.</Step>
+              <Step n={4}><strong>Kanan</strong> — pilih field dari dropdown.</Step>
+              <Step n={5}><strong>List Alat</strong> — daftar alat yang disewa; block ini terkunci.</Step>
+              <Step n={6}><strong>Kiri Bawah</strong> — pilih field dari dropdown.</Step>
+              <Step n={7}><strong>Total Harga</strong> — total harga sewa; block ini terkunci.</Step>
+              <Step n={8}><strong>Footer</strong> — atur custom text atau tanda tangan.</Step>
+            </Steps>
 
             <h4>Field yang Bisa Dipilih</h4>
             <Bullets>
-              <li>No. Invoice</li>
-              <li>Tanggal Buat</li>
-              <li>Status</li>
-              <li>Dibuat Oleh</li>
-              <li>Waktu Ambil</li>
-              <li>Waktu Kembali</li>
-              <li>Durasi</li>
-              <li>Diserahkan Oleh</li>
-              <li>Penyewa</li>
-              <li>No. HP</li>
-              <li>Alamat</li>
-              <li>Jaminan</li>
-              <li>Status Bayar</li>
-              <li>Aksesoris</li>
-              <li>Tanda Tangan</li>
-              <li>Text Footer</li>
+              <li>No. Invoice, Tanggal Buat, Status, dan Dibuat Oleh</li>
+              <li>Waktu Ambil, Waktu Kembali, dan Durasi</li>
+              <li>Diserahkan Oleh, Penyewa, No. HP, Alamat, dan Jaminan</li>
+              <li>Status Bayar dan Aksesoris</li>
+              <li>Tanda Tangan dan Text Footer</li>
             </Bullets>
 
             <h4>Cara Customize</h4>
             <Steps>
               <Step n={1}>Buka modal editor <strong>"Atur Tata Letak Invoice"</strong>.</Step>
               <Step n={2}>
-                <p>
-                  Untuk setiap block yang bisa diubah (A, B, C, D, F, H), klik dropdown{" "}
-                  <strong>"Pilih Field"</strong> atau <strong>"Tambah Field"</strong>, lalu pilih
-                  field dari list yang ingin ditampilkan.
-                </p>
+                Pada block yang bisa diubah (A, B, C, D, F, H), klik <strong>"Pilih Field"</strong> atau <strong>"Tambah Field"</strong>, lalu pilih field yang ingin ditampilkan.
                 <Bullets>
-                  <li>
-                    Field yang sudah dipakai di block lain tidak akan muncul (untuk mencegah
-                    duplikasi).
-                  </li>
-                  <li>
-                    Jika ingin pindah field ke block lain: hapus dulu dari block awal → field akan
-                    muncul lagi di dropdown block lain → pilih &amp; masukkan ke block baru.
-                  </li>
+                  <li>Field yang sudah dipakai di block lain tidak muncul lagi, agar tidak ada duplikasi.</li>
+                  <li>Untuk memindahkan field, hapus dari block asal terlebih dahulu. Setelah itu field bisa dipilih di block tujuan.</li>
                 </Bullets>
               </Step>
-              <Step n={3}>Lihat <strong>preview real-time</strong> di sebelah kanan untuk hasil layout.</Step>
-              <Step n={4}>Klik <strong>"Simpan Layout"</strong> untuk terapkan ke semua invoice.</Step>
+              <Step n={3}>Periksa hasilnya pada preview real-time di sebelah kanan.</Step>
+              <Step n={4}>Klik <strong>"Simpan Layout"</strong> untuk menerapkan perubahan ke semua invoice.</Step>
             </Steps>
 
             <Note title="Reset ke Layout Default">
-              Klik <strong>"Reset ke Default"</strong> di section "Tata Letak Invoice" untuk kembali
+              Klik <strong>"Reset ke Default"</strong> di bagian "Tata Letak Invoice" untuk kembali
               ke layout standar Sewara.
             </Note>
 
             <Warn title="Catatan Penting">
               <Bullets>
-                <li>Setiap field hanya bisa dipakai 1 kali dalam seluruh invoice.</li>
-                <li>Download PDF dan cetak mengikuti layout yang di-set (custom atau default).</li>
-                <li>
-                  Opsi "Cetak 2 Salinan" hanya berlaku saat print/cetak, sesuai setting di atas.
-                </li>
+                <li>Setiap field hanya bisa dipakai satu kali di seluruh invoice.</li>
+                <li>Download PDF dan cetak mengikuti layout yang dipilih (Custom atau Default).</li>
+                <li>Opsi "Cetak 2 Salinan" hanya berlaku saat print/cetak.</li>
               </Bullets>
             </Warn>
+
+
           </section>
+
 
           {/* BAGIAN 4: INVENTARIS */}
           <section className="sw-gs" id="inventaris">
