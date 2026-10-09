@@ -137,15 +137,15 @@ export default function PanduanPage() {
                 Klik <strong>"Invoice &amp; Dokumen"</strong> di sidebar pengaturan.
               </Step>
               <Step n={2}>
-                Atur <strong>Awalan Nomor Invoice</strong> — prefix invoice. Contoh:{" "}
+                Atur <strong>Awalan Nomor Invoice</strong>: prefix invoice. Contoh:{" "}
                 <code>INV-BTL</code>.
               </Step>
               <Step n={3}>
-                Atur <strong>Jumlah Digit</strong> — berapa digit nomor. Contoh: 5 digit ={" "}
+                Atur <strong>Jumlah Digit</strong>: berapa digit nomor. Contoh: 5 digit ={" "}
                 <code>01001</code>, <code>01002</code>, dst.
               </Step>
               <Step n={4}>
-                Atur <strong>Mulai Dari Nomor</strong> — nomor awal. Contoh: <code>1001</code>.
+                Atur <strong>Mulai Dari Nomor</strong>: nomor awal. Contoh: <code>1001</code>.
               </Step>
             </Steps>
             <Note title="Contoh Nomor">
@@ -181,24 +181,37 @@ export default function PanduanPage() {
             <h4>8 Block Layout</h4>
             <p className="sw-gs-lead">Pada mode Custom, block berikut menentukan susunan informasi di invoice:</p>
             <Steps>
-              <Step n={1}><strong>Header</strong> — unggah gambar/logo (JPG/PNG, maksimal 5 MB; rasio 4:1–8:1, lebar ideal 1600 px).</Step>
-              <Step n={2}><strong>Info Booking</strong> — pilih field informasi booking.</Step>
-              <Step n={3}><strong>Kiri</strong> — pilih field dari dropdown.</Step>
-              <Step n={4}><strong>Kanan</strong> — pilih field dari dropdown.</Step>
-              <Step n={5}><strong>List Alat</strong> — daftar alat yang disewa; block ini terkunci.</Step>
-              <Step n={6}><strong>Kiri Bawah</strong> — pilih field dari dropdown.</Step>
-              <Step n={7}><strong>Total Harga</strong> — total harga sewa; block ini terkunci.</Step>
-              <Step n={8}><strong>Footer</strong> — atur custom text atau tanda tangan.</Step>
+              <Step n={1}><strong>Header</strong>: unggah gambar/logo (JPG/PNG, maksimal 5 MB; rasio 4:1–8:1, lebar ideal 1600 px).</Step>
+              <Step n={2}><strong>Info Booking</strong>: pilih field informasi booking.</Step>
+              <Step n={3}><strong>Kiri</strong>: pilih field dari dropdown.</Step>
+              <Step n={4}><strong>Kanan</strong>: pilih field dari dropdown.</Step>
+              <Step n={5}><strong>List Alat</strong>: daftar alat yang disewa; block ini terkunci.</Step>
+              <Step n={6}><strong>Kiri Bawah</strong>: pilih field dari dropdown.</Step>
+              <Step n={7}><strong>Total Harga</strong>: total harga sewa; block ini terkunci.</Step>
+              <Step n={8}><strong>Footer</strong>: atur custom text atau tanda tangan.</Step>
             </Steps>
 
             <h4>Field yang Bisa Dipilih</h4>
-            <Bullets>
-              <li>No. Invoice, Tanggal Buat, Status, dan Dibuat Oleh</li>
-              <li>Waktu Ambil, Waktu Kembali, dan Durasi</li>
-              <li>Diserahkan Oleh, Penyewa, No. HP, Alamat, dan Jaminan</li>
-              <li>Status Bayar dan Aksesoris</li>
-              <li>Tanda Tangan dan Text Footer</li>
-            </Bullets>
+            <div style={{ marginLeft: 24 }}>
+              <Bullets>
+                <li>No. Invoice</li>
+                <li>Tanggal Buat</li>
+                <li>Status</li>
+                <li>Dibuat Oleh</li>
+                <li>Waktu Ambil</li>
+                <li>Waktu Kembali</li>
+                <li>Durasi</li>
+                <li>Diserahkan Oleh</li>
+                <li>Penyewa</li>
+                <li>No. HP</li>
+                <li>Alamat</li>
+                <li>Jaminan</li>
+                <li>Status Bayar</li>
+                <li>Aksesoris</li>
+                <li>Tanda Tangan</li>
+                <li>Text Footer</li>
+              </Bullets>
+            </div>
 
             <h4>Cara Customize</h4>
             <Steps>
@@ -321,7 +334,7 @@ export default function PanduanPage() {
 
             <h3 id="panduan-csv">Panduan Mengisi Template CSV</h3>
             <p style={{ color: "var(--sw-text-2)", marginBottom: 16 }}>
-              Template CSV terdiri dari 10 kolom. Jangan mengubah nama kolom di baris pertama — template tidak
+              Template CSV terdiri dari 10 kolom. Jangan mengubah nama kolom di baris pertama: template tidak
               akan terbaca jika header diubah.
             </p>
 
@@ -367,13 +380,13 @@ export default function PanduanPage() {
             <Bullets>
               <li>Isi tarif dalam angka saja, <strong>tanpa titik, koma, atau Rp</strong>. Contoh: <code>270000</code> bukan <code>Rp270.000</code></li>
               <li>Jika TipeSewa = <code>Harian</code>, kolom Harga6J dan Harga12J <strong>boleh dikosongkan</strong></li>
-              <li>Jika TipeSewa = <code>Fleksibel</code>, kolom Harga6J dan Harga12J <strong>wajib diisi</strong> — jika kosong, produk tidak akan tersimpan</li>
+              <li>Jika TipeSewa = <code>Fleksibel</code>, kolom Harga6J dan Harga12J <strong>wajib diisi</strong>: jika kosong, produk tidak akan tersimpan</li>
               <li>Pisahkan nomor seri dengan <code>/</code> tanpa spasi. Contoh: <code>K1/K2/K3</code></li>
-              <li><strong>Jangan ubah nama kolom</strong> di baris pertama — template tidak akan terbaca jika header diubah</li>
+              <li><strong>Jangan ubah nama kolom</strong> di baris pertama: template tidak akan terbaca jika header diubah</li>
             </Bullets>
 
             <Warn title="Setelah selesai mengisi">
-              Unduh file dari Google Sheets dalam format <strong>CSV</strong> — bukan format XLSX atau format
+              Unduh file dari Google Sheets dalam format <strong>CSV</strong>: bukan format XLSX atau format
               lainnya. Klik <strong>File &rarr; Download &rarr; Comma Separated Values (.csv)</strong>
             </Warn>
           </section>
@@ -479,7 +492,7 @@ export default function PanduanPage() {
               <Step n={1}>Cari booking di kolom <strong>"Booking"</strong>.</Step>
               <Step n={2}>Klik tombol <strong>"Serahkan"</strong>.</Step>
               <Step n={3}>
-                Popup konfirmasi muncul — klik <strong>"Serahkan"</strong> untuk lanjut (atau{" "}
+                Popup konfirmasi muncul: klik <strong>"Serahkan"</strong> untuk lanjut (atau{" "}
                 <strong>"Batal"</strong> untuk batal).
               </Step>
               <Step n={4}>
@@ -512,7 +525,7 @@ export default function PanduanPage() {
               </Step>
               <Step n={2}>Klik tombol <strong>"Terima"</strong>.</Step>
               <Step n={3}>
-                Popup konfirmasi muncul — klik <strong>"Terima"</strong> untuk lanjut.
+                Popup konfirmasi muncul: klik <strong>"Terima"</strong> untuk lanjut.
               </Step>
               <Step n={4}>
                 <p>Sistem cek pembayaran:</p>
@@ -527,14 +540,14 @@ export default function PanduanPage() {
               </Step>
               <Step n={5}>
                 <p>
-                  Popup <strong>"Cek Kondisi Unit"</strong> muncul — untuk setiap alat, pilih kondisi:
+                  Popup <strong>"Cek Kondisi Unit"</strong> muncul: untuk setiap alat, pilih kondisi:
                 </p>
                 <IChos>
                   <ICho>
-                    <strong>Baik</strong> — tidak ada masalah.
+                    <strong>Baik</strong>: tidak ada masalah.
                   </ICho>
                   <ICho>
-                    <strong>Bermasalah</strong> — wajib isi catatan (contoh: "Layar pecah",
+                    <strong>Bermasalah</strong>: wajib isi catatan (contoh: "Layar pecah",
                     "Baterai rusak", dll).
                   </ICho>
                 </IChos>
@@ -593,7 +606,7 @@ export default function PanduanPage() {
                 (jika app support).
               </li>
               <li>
-                Catat pembayaran bisa dilakukan di mana saja — saat serah, saat terima, atau nanti dari
+                Catat pembayaran bisa dilakukan di mana saja: saat serah, saat terima, atau nanti dari
                 kolom <strong>"Belum Selesai"</strong>.
               </li>
             </Bullets>
