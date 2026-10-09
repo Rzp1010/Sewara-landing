@@ -7,12 +7,22 @@ import { IconBook } from "../../components/icons";
 export const metadata = {
   title: "Panduan Penggunaan",
   description:
-    "Panduan lengkap Sewara, dari pendaftaran akun, login, mengisi inventaris, membuat booking, mengubah status sewa, hingga tracking alat.",
+    "Panduan lengkap Sewara, dari pendaftaran akun, login, pengaturan invoice, mengisi inventaris, membuat booking, mengubah status sewa, hingga tracking alat.",
 };
 
 const TOC = [
   { label: "Memulai", id: "daftar", title: "Pendaftaran Akun" },
   { label: "Memulai", id: "login", title: "Login" },
+  {
+    label: "Persiapan",
+    id: "invoice",
+    title: "Invoice & Dokumen",
+    sub: [
+      { id: "format-nomor", title: "Format Nomor Invoice" },
+      { id: "opsi-cetak", title: "Opsi Cetak Invoice" },
+      { id: "tata-letak", title: "Tata Letak Invoice" },
+    ],
+  },
   {
     label: "Inventaris",
     id: "inventaris",
@@ -112,9 +122,156 @@ export default function PanduanPage() {
             </Steps>
           </section>
 
-          {/* BAGIAN 3: INVENTARIS */}
-          <section className="sw-gs" id="inventaris">
+          {/* BAGIAN 3: INVOICE & DOKUMEN */}
+          <section className="sw-gs" id="invoice">
             <div className="sw-gs-kicker">Bagian 3</div>
+            <h2 className="sw-gs-title">Invoice &amp; Dokumen</h2>
+            <p className="sw-gs-lead">
+              Atur format nomor invoice, footer, opsi cetak, dan customize layout invoice sesuai
+              kebutuhan bisnis.
+            </p>
+
+            <h3 id="format-nomor">A. Format Nomor Invoice</h3>
+            <Steps>
+              <Step n={1}>
+                Klik <strong>"Invoice &amp; Dokumen"</strong> di sidebar pengaturan.
+              </Step>
+              <Step n={2}>
+                Atur <strong>Awalan Nomor Invoice</strong> — prefix invoice. Contoh:{" "}
+                <code>INV-BTL</code>.
+              </Step>
+              <Step n={3}>
+                Atur <strong>Jumlah Digit</strong> — berapa digit nomor. Contoh: 5 digit ={" "}
+                <code>01001</code>, <code>01002</code>, dst.
+              </Step>
+              <Step n={4}>
+                Atur <strong>Mulai Dari Nomor</strong> — nomor awal. Contoh: <code>1001</code>.
+              </Step>
+            </Steps>
+            <Note title="Contoh Nomor">
+              Lihat bagian <strong>Contoh Nomor</strong> di bawah pengaturan untuk preview hasil
+              format invoice sebelum disimpan.
+            </Note>
+
+            <h3 id="opsi-cetak">B. Opsi Cetak Invoice</h3>
+            <h4>Cetak 2 Salinan dalam 1 Halaman A4 Landscape</h4>
+            <p className="sw-gs-lead">Toggle Aktif/Nonaktif.</p>
+            <IChos>
+              <ICho>
+                <strong>Aktif</strong> → semua invoice yang dicetak menampilkan <strong>2 salinan
+                identik dalam 1 halaman A4 landscape</strong>. User bisa langsung potong untuk 1 copy
+                pelanggan &amp; 1 copy arsip toko.
+              </ICho>
+              <ICho>
+                <strong>Nonaktif</strong> → cetak normal <strong>1 salinan per halaman</strong>{" "}
+                (A4 portrait).
+              </ICho>
+            </IChos>
+
+            <h4>Kolom Tanda Tangan</h4>
+            <p className="sw-gs-lead">
+              Toggle Aktif/Nonaktif untuk menampilkan area tanda tangan di invoice. Area ini untuk
+              tanda tangan manual (ditulis tangan di kertas saat cetak).
+            </p>
+
+            <h3 id="tata-letak">C. Tata Letak Invoice</h3>
+            <p className="sw-gs-lead">Mode: Default atau Custom</p>
+            <IChos>
+              <ICho>
+                <strong>Mode Default</strong> — invoice menggunakan layout bawaan Sewara dengan
+                semua field standar.
+              </ICho>
+              <ICho>
+                <strong>Mode Custom</strong> — tenant bisa customize layout invoice sesuai
+                kebutuhan. Klik <strong>"Atur Tata Letak Invoice"</strong> untuk membuka editor.
+              </ICho>
+            </IChos>
+
+            <h4>8 Block Layout</h4>
+            <Tbl>
+              <thead>
+                <TR>
+                  <TH>Block</TH>
+                  <TH>Nama</TH>
+                  <TH>Status</TH>
+                  <TH>Keterangan</TH>
+                </TR>
+              </thead>
+              <tbody>
+                <TR><TD>A</TD><TD>Header</TD><TD><Badge tone="neutral">Customizable</Badge></TD><TD>Upload gambar/logo (JPG/PNG, max 5MB). Rasio 4:1–8:1, lebar ideal 1600px</TD></TR>
+                <TR><TD>B</TD><TD>Info Booking</TD><TD><Badge tone="neutral">Customizable</Badge></TD><TD>Pilih field info booking</TD></TR>
+                <TR><TD>C</TD><TD>Kiri</TD><TD><Badge tone="neutral">Customizable</Badge></TD><TD>Pilih field dari dropdown</TD></TR>
+                <TR><TD>D</TD><TD>Kanan</TD><TD><Badge tone="neutral">Customizable</Badge></TD><TD>Pilih field dari dropdown</TD></TR>
+                <TR><TD>E</TD><TD>List Alat</TD><TD><Badge tone="danger">LOCKED</Badge></TD><TD>Daftar alat yang disewa (tidak bisa diubah)</TD></TR>
+                <TR><TD>F</TD><TD>Kiri Bawah</TD><TD><Badge tone="neutral">Customizable</Badge></TD><TD>Pilih field dari dropdown</TD></TR>
+                <TR><TD>G</TD><TD>Total Harga</TD><TD><Badge tone="danger">LOCKED</Badge></TD><TD>Total harga sewa (tidak bisa diubah)</TD></TR>
+                <TR><TD>H</TD><TD>Footer</TD><TD><Badge tone="neutral">Customizable</Badge></TD><TD>Custom text atau tanda tangan</TD></TR>
+              </tbody>
+            </Tbl>
+
+            <h4>Field yang Bisa Dipilih</h4>
+            <Bullets>
+              <li>No. Invoice</li>
+              <li>Tanggal Buat</li>
+              <li>Status</li>
+              <li>Dibuat Oleh</li>
+              <li>Waktu Ambil</li>
+              <li>Waktu Kembali</li>
+              <li>Durasi</li>
+              <li>Diserahkan Oleh</li>
+              <li>Penyewa</li>
+              <li>No. HP</li>
+              <li>Alamat</li>
+              <li>Jaminan</li>
+              <li>Status Bayar</li>
+              <li>Aksesoris</li>
+              <li>Tanda Tangan</li>
+              <li>Text Footer</li>
+            </Bullets>
+
+            <h4>Cara Customize</h4>
+            <Steps>
+              <Step n={1}>Buka modal editor <strong>"Atur Tata Letak Invoice"</strong>.</Step>
+              <Step n={2}>
+                <p>
+                  Untuk setiap block yang bisa diubah (A, B, C, D, F, H), klik dropdown{" "}
+                  <strong>"Pilih Field"</strong> atau <strong>"Tambah Field"</strong>, lalu pilih
+                  field dari list yang ingin ditampilkan.
+                </p>
+                <Bullets>
+                  <li>
+                    Field yang sudah dipakai di block lain tidak akan muncul (untuk mencegah
+                    duplikasi).
+                  </li>
+                  <li>
+                    Jika ingin pindah field ke block lain: hapus dulu dari block awal → field akan
+                    muncul lagi di dropdown block lain → pilih &amp; masukkan ke block baru.
+                  </li>
+                </Bullets>
+              </Step>
+              <Step n={3}>Lihat <strong>preview real-time</strong> di sebelah kanan untuk hasil layout.</Step>
+              <Step n={4}>Klik <strong>"Simpan Layout"</strong> untuk terapkan ke semua invoice.</Step>
+            </Steps>
+
+            <Note title="Reset ke Layout Default">
+              Klik <strong>"Reset ke Default"</strong> di section "Tata Letak Invoice" untuk kembali
+              ke layout standar Sewara.
+            </Note>
+
+            <Warn title="Catatan Penting">
+              <Bullets>
+                <li>Setiap field hanya bisa dipakai 1 kali dalam seluruh invoice.</li>
+                <li>Download PDF dan cetak mengikuti layout yang di-set (custom atau default).</li>
+                <li>
+                  Opsi "Cetak 2 Salinan" hanya berlaku saat print/cetak, sesuai setting di atas.
+                </li>
+              </Bullets>
+            </Warn>
+          </section>
+
+          {/* BAGIAN 4: INVENTARIS */}
+          <section className="sw-gs" id="inventaris">
+            <div className="sw-gs-kicker">Bagian 4</div>
             <h2 className="sw-gs-title">Menambahkan Inventaris</h2>
             <p className="sw-gs-lead">
               Sebelum membuat booking, pastikan inventaris alat sudah diisi terlebih dahulu.
@@ -228,7 +385,7 @@ export default function PanduanPage() {
               </tbody>
             </Tbl>
 
-            <h4 style={{ marginTop: 28, marginBottom: 12 }}>Contoh Pengisian</h4>
+            <h4>Contoh Pengisian</h4>
             <Tbl variant="example">
               <thead>
                 <TR>
@@ -244,7 +401,7 @@ export default function PanduanPage() {
               </tbody>
             </Tbl>
 
-            <h4 style={{ marginTop: 28, marginBottom: 12 }}>Hal Penting</h4>
+            <h4>Hal Penting</h4>
             <Bullets>
               <li>Isi tarif dalam angka saja, <strong>tanpa titik, koma, atau Rp</strong>. Contoh: <code>270000</code> bukan <code>Rp270.000</code></li>
               <li>Jika TipeSewa = <code>Harian</code>, kolom Harga6J dan Harga12J <strong>boleh dikosongkan</strong></li>
@@ -259,9 +416,9 @@ export default function PanduanPage() {
             </Warn>
           </section>
 
-          {/* BAGIAN 4: BOOKING */}
+          {/* BAGIAN 5: BOOKING */}
           <section className="sw-gs" id="booking">
-            <div className="sw-gs-kicker">Bagian 4</div>
+            <div className="sw-gs-kicker">Bagian 5</div>
             <h2 className="sw-gs-title">Membuat Booking</h2>
             <Steps>
               <Step n={1}>Klik menu <strong>"Operasional"</strong> di sidebar kiri.</Step>
@@ -300,9 +457,9 @@ export default function PanduanPage() {
             </Warn>
           </section>
 
-          {/* BAGIAN 5: STATUS SEWA */}
+          {/* BAGIAN 6: STATUS SEWA */}
           <section className="sw-gs" id="status">
-            <div className="sw-gs-kicker">Bagian 5</div>
+            <div className="sw-gs-kicker">Bagian 6</div>
             <h2 className="sw-gs-title">Melihat dan Mengubah Status Sewa</h2>
             <Steps>
               <Step n={1}>Klik menu <strong>"Operasional"</strong> di sidebar kiri.</Step>
@@ -480,9 +637,9 @@ export default function PanduanPage() {
             </Bullets>
           </section>
 
-          {/* BAGIAN 6: TRACKING */}
+          {/* BAGIAN 7: TRACKING */}
           <section className="sw-gs" id="tracking">
-            <div className="sw-gs-kicker">Bagian 6</div>
+            <div className="sw-gs-kicker">Bagian 7</div>
             <h2 className="sw-gs-title">Tracking Alat</h2>
             <p className="sw-gs-lead">
               Fitur Tracking Alat memiliki 2 mode tampilan sesuai kebutuhan user.
