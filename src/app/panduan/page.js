@@ -173,10 +173,12 @@ export default function PanduanPage() {
 
             <h3 id="tata-letak">C. Tata Letak Invoice</h3>
             <p className="sw-gs-lead">Pilih mode tata letak yang ingin digunakan:</p>
-            <Steps>
-              <Step n={1}><strong>Default:</strong> menggunakan layout bawaan Sewara dengan field standar.</Step>
-              <Step n={2}><strong>Custom:</strong> atur layout sesuai kebutuhan. Klik <strong>"Atur Tata Letak Invoice"</strong> untuk membuka editor.</Step>
-            </Steps>
+            <div style={{ marginLeft: 24 }}>
+              <Bullets>
+                <li><strong>Default:</strong> menggunakan layout bawaan Sewara dengan field standar.</li>
+                <li><strong>Custom:</strong> atur layout sesuai kebutuhan. Klik <strong>"Atur Tata Letak Invoice"</strong> untuk membuka editor.</li>
+              </Bullets>
+            </div>
 
             <h4>8 Block Layout</h4>
             <p className="sw-gs-lead">Pada mode Custom, block berikut menentukan susunan informasi di invoice:</p>
