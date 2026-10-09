@@ -1029,6 +1029,7 @@ code {
 }
 .sw-gstep-body b { color: var(--sw-text); }
 .sw-gstep-body p { margin: 0; }
+#invoice .sw-gstep-body > .sw-bullets { margin-left: 20px; }
 
 /* Catatan & peringatan */
 .sw-note, .sw-warn {
