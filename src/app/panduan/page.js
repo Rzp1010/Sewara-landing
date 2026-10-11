@@ -90,7 +90,7 @@ export default function PanduanPage() {
             <h2 className="sw-gs-title">Pendaftaran Akun</h2>
             <Steps>
               <Step n={1}>
-                Buka <strong>sewara.vercel.app</strong>, klik tombol <strong>"Masuk ke Aplikasi"</strong>,
+                Buka <strong>sewara.id</strong>, klik tombol <strong>"Masuk ke Aplikasi"</strong>,
                 lalu klik <strong>"Daftar di sini"</strong> yang berada di bawah tombol Login.
               </Step>
               <Step n={2}>
@@ -114,7 +114,7 @@ export default function PanduanPage() {
             <h2 className="sw-gs-title">Login</h2>
             <Steps>
               <Step n={1}>
-                Buka <strong>sewara.vercel.app</strong> lalu klik tombol <strong>"Masuk ke Aplikasi"</strong>.
+                Buka <strong>sewara.id</strong> lalu klik tombol <strong>"Masuk ke Aplikasi"</strong>.
               </Step>
               <Step n={2}>
                 Masukkan <strong>Email</strong> dan <strong>Password</strong> yang didaftarkan.
