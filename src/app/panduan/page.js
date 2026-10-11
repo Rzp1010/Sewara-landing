@@ -19,6 +19,7 @@ const TOC = [
     title: "Invoice & Dokumen",
     sub: [
       { id: "format-nomor", title: "Format Nomor Invoice" },
+      { id: "jaminan", title: "Jaminan" },
       { id: "opsi-cetak", title: "Opsi Cetak Invoice" },
       { id: "tata-letak", title: "Tata Letak Invoice" },
     ],
