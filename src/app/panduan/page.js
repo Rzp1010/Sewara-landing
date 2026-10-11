@@ -153,7 +153,60 @@ export default function PanduanPage() {
               format invoice sebelum disimpan.
             </Note>
 
-            <h3 id="opsi-cetak">B. Opsi Cetak Invoice</h3>
+            <h3 id="jaminan">B. Jaminan</h3>
+            <p className="sw-gs-lead">
+              Atur jenis jaminan apa saja yang bisa diterima saat penyewa membuat booking.
+            </p>
+
+            <h4>Default Jaminan</h4>
+            <p className="sw-gs-lead">Jika belum di-customize, daftar jaminan default adalah:</p>
+            <Bullets>
+              <li>KTP</li>
+              <li>SIM</li>
+              <li>Tanpa Jaminan</li>
+            </Bullets>
+
+            <h4>Customize Daftar Jaminan</h4>
+            <Steps>
+              <Step n={1}>
+                Klik menu <strong>"Pengaturan"</strong> → <strong>"Operasional"</strong>.
+              </Step>
+              <Step n={2}>
+                Scroll ke bawah hingga section <strong>"Jaminan"</strong>.
+              </Step>
+              <Step n={3}>
+                Lihat <strong>Daftar Jenis Jaminan</strong> (ditampilkan sebagai chip/tag).
+              </Step>
+            </Steps>
+
+            <h4>Cara Tambah Jaminan</h4>
+            <Steps>
+              <Step n={1}>
+                Di field input <strong>"Nama jaminan..."</strong>, ketik nama jaminan baru. Contoh: <code>NPWP</code>, <code>Paspor</code>, <code>Barang Elektronik</code>, <code>Deposit</code>.
+              </Step>
+              <Step n={2}>Klik tombol <strong>"Tambah"</strong>.</Step>
+              <Step n={3}>
+                Jaminan baru akan masuk ke daftar dan muncul sebagai chip.
+              </Step>
+            </Steps>
+
+            <h4>Cara Hapus Jaminan</h4>
+            <Steps>
+              <Step n={1}>
+                Klik tombol <strong>"X"</strong> pada chip jaminan yang ingin dihapus.
+              </Step>
+              <Step n={2}>Jaminan akan hilang dari daftar.</Step>
+            </Steps>
+
+            <Note title="Catatan Penting">
+              <Bullets>
+                <li><strong>"Tanpa Jaminan"</strong> tidak bisa dihapus — selalu ada sebagai opsi default.</li>
+                <li>Jaminan yang sudah di-setting akan muncul sebagai pilihan di form booking untuk penyewa.</li>
+                <li>Perubahan daftar jaminan langsung berlaku untuk booking baru.</li>
+              </Bullets>
+            </Note>
+
+            <h3 id="opsi-cetak">C. Opsi Cetak Invoice</h3>
             <Steps>
               <Step n={1}>
                 <strong>Cetak 2 salinan dalam 1 halaman A4 landscape</strong>
@@ -171,7 +224,7 @@ export default function PanduanPage() {
               </Step>
             </Steps>
 
-            <h3 id="tata-letak">C. Tata Letak Invoice</h3>
+            <h3 id="tata-letak">D. Tata Letak Invoice</h3>
             <p className="sw-gs-lead">Pilih mode tata letak yang ingin digunakan:</p>
             <IChos>
               <ICho>
